@@ -1,0 +1,13 @@
+name = "gleam_stdlib"
+version = "0.37.0"
+gleam = ">= 0.32.0"
+licences = ["Apache-2.0"]
+description = "A fork of the Gleam standard library for Glistix's Nix target"
+
+repository = { type = "github", user = "glistix", repo = "stdlib" }
+links = []
+
+[javascript.deno]
+allow_read = [
+  "./",
+]
