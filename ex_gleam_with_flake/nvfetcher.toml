@@ -1,0 +1,7 @@
+[gleam-stdlib]
+src.git = "https://github.com/gleam-lang/stdlib"
+fetch.github = "gleam-lang/stdlib"
+
+[effect]
+src.git = "https://github.com/ethanthoma/effect"
+fetch.github = "ethanthoma/effect"

@@ -1,0 +1,44 @@
+{
+    "effect": {
+        "cargoLocks": null,
+        "date": "2025-02-02",
+        "extract": null,
+        "name": "effect",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ethanthoma",
+            "repo": "effect",
+            "rev": "813eb2fff9c4efa79bd8b1651a78fb8fd7bc25a4",
+            "sha256": "sha256-ZssdoDjuiLXvlNfZLpPMZDFyjvMGqYue7nYm3XjwK2Y=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "813eb2fff9c4efa79bd8b1651a78fb8fd7bc25a4"
+    },
+    "gleam-stdlib": {
+        "cargoLocks": null,
+        "date": "2025-02-04",
+        "extract": null,
+        "name": "gleam-stdlib",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "gleam-lang",
+            "repo": "stdlib",
+            "rev": "9548d28cc2cf6991bdc6b91aeb27d2d7adde040b",
+            "sha256": "sha256-FkOh28tsEwutdt83eBGNieDO8BZBp8skaYy5mEO7638=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "9548d28cc2cf6991bdc6b91aeb27d2d7adde040b"
+    }
+}
