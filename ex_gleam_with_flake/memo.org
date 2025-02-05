@@ -1,0 +1,38 @@
+* Git上にあるGleamパッケージをNixを使って管理する
+
+まだWIPだし改善の余地は大いにあるけど、Gleamが抱えるパッケージの問題を解決する方法として有力かもしれないと思っている。
+
+** モチベーション
+
+Gleamは現状Gitリポジトリをパッケージとして扱えない。
+自作したパッケージを使用するにはhex.pmへ登録しないといけない。
+
+hex.pmはErlang, EFE(Lisp Flavored Erlang), Elixirなどの言語がパッケージを公開しており、それらのパッケージと名前が被らないようにしないといけない。
+
+これを回避するための手段としてGitリポジトリをパッケージとして扱えるようにしたい。
+
+** 方法
+
+方法は単純で、pkgs.fetchFromGitHubの戻り値をmkShellのshellHookで`ln -s ${src} ./vendor/${pkgname}`という形式でリンクさせるだけ。
+
+gleam.tomlにはローカルのディレクトリをパッケージとして認識する項目があるので、それを追加してやれば良い。
+
+#+begin_src toml
+  [dependencies]
+  pkgname = { path = "./vendor/pkgname" }
+#+end_src
+
+nvfetcherを併用する方法も試してみたけど、そちらも上手く動いたので使えそう。
+
+** この方法の課題
+
+*** gleam.tomlとflakeの同期が面倒
+
+パッケージの情報をgleam.tomlとflakeの2つに書いているのでやや冗長な感じが否めない。
+
+nvfetcherを使えばパッケージの自動更新も行えるし、設定自体はtomlで書くのでPythonで容易に生成ができそう。
+
+問題はflakeの方で、なんらかの方法でshellHookの生成に介入する必要がありそうだし、
+nvfetcherが生成したnixファイルをflakeで扱うためのコード自体は自身で記述する必要がある。
+
+Nix力ないせいでスニペットを出力したりして手間を軽減するくらいくらいしか思いつけない。
