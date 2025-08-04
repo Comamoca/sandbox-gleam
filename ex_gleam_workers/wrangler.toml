@@ -1,0 +1,7 @@
+name = "ex_gleam_workers"
+main = "build/dev/javascript/ex_gleam_workers/index.js"
+compatibility_date = "2023-09-22"
+
+[build]
+command = "gleam build"
+
