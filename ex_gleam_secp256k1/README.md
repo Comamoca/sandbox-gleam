@@ -1,40 +1,40 @@
 # ex_gleam_secp256k1
 
-GleamでBIP-340 Schnorr署名を使ったNostrイベントの署名・検証を行うサンプル実装
+A sample implementation of Nostr event signing and verification using BIP-340 Schnorr signatures in Gleam.
 
-## 概要
+## Overview
 
-ziglerを用いてBIP-340のSchnorr署名を実装しているElixirライブラリ[nosnos](https://github.com/comamoca/nosnos)をGleamから使用し、実際にNostrイベントの署名と検証を行うサンプルです。
+This sample demonstrates how to sign and verify Nostr events using [nosnos](https://github.com/comamoca/nosnos), an Elixir library that implements BIP-340 Schnorr signatures with Zigler (Zig NIFs).
 
-### nosnosについて
+### About nosnos
 
-nosnosは、ZigのNIF (Native Implemented Functions)を使ってBIP-340 Schnorr署名を実装したElixirライブラリです。
+nosnos is an Elixir library that implements BIP-340 Schnorr signatures using Zig NIFs (Native Implemented Functions).
 
-- Zigで実装された高速な暗号化処理
-- BIP-340 Schnorr署名のサポート
-- Nostrプロトコル (NIP-01) のイベント署名・検証機能
+- High-performance cryptographic operations implemented in Zig
+- BIP-340 Schnorr signature support
+- Nostr protocol (NIP-01) event signing and verification functionality
 
-このサンプルでは、GleamのFFI（Foreign Function Interface）を使ってnosnosライブラリを呼び出し、型安全なNostrイベントの署名・検証を実現しています。
+This sample uses Gleam's FFI (Foreign Function Interface) to call the nosnos library, providing type-safe Nostr event signing and verification.
 
-## 実行方法
+## How to Run
 
-### ビルド
+### Build
 
-現在(2025/11/15)gleamのビルドシステムにおいてzigの実行ファイルを取得するmixタスク`zig.get`が実行できません。
-そのため、以下のようにzigの実行ファイルを指定した後`gleam build`を実行する必要があります。
+Currently (as of 2025/11/15), the Gleam build system cannot execute the `zig.get` mix task to fetch the Zig executable.
+Therefore, you need to specify the Zig executable path before running `gleam build`:
 
 ```sh
 export ZIGLER_ZIG_EXE=/path/to/zig
 gleam build
 ```
 
-### 実行
+### Run
 
 ```sh
 gleam run
 ```
 
-### 実行結果の例
+### Example Output
 
 ```
 Nostr Event Signing and Verification Demo
@@ -66,3 +66,7 @@ The event has been successfully signed and verified.
 Modified content: This content has been modified
 ✗ Modified event signature is INVALID (expected behavior)
 ```
+
+---
+
+[日本語版 README](./README.jp.md)
